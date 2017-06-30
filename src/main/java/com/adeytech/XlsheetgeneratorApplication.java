@@ -8,5 +8,7 @@ public class XlsheetgeneratorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(XlsheetgeneratorApplication.class, args);
+
+		new Generator().generate();
 	}
 }

@@ -13,7 +13,7 @@ public class Generator
 {
     public void generate() {
         try {
-            String filename = "C:/NewExcelFile.xls" ;
+            String filename = "E:/NewExcelFile.xls" ;
             HSSFWorkbook workbook = new HSSFWorkbook();
             HSSFSheet sheet = workbook.createSheet("FirstSheet");
 
@@ -27,12 +27,16 @@ public class Generator
             row.createCell(0).setCellValue("1");
             row.createCell(1).setCellValue("My Name");
             row.createCell(2).setCellValue("My Home Address");
-            row.createCell(3).setCellValue("my gmail email.");
+            row.createCell(3).setCellValue("My gmail email.");
 
             FileOutputStream fileOut = new FileOutputStream(filename);
             workbook.write(fileOut);
             fileOut.close();
             System.out.println("Generated!");
+
+            String value = new ENcoder().encodeFileToBase64Binary("E:/NewExcelFile.xls");
+            new ENcoder().decodeToXLS();
+            System.out.println(value);
 
         } catch ( Exception ex ) {
             System.out.println(ex);
